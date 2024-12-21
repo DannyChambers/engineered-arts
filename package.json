@@ -1,5 +1,5 @@
 {
-  "name": "research.designtechnologist.co.uk",
+  "name": "engineeredarts.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix"
   },
   "dependencies": {
-    "@dannychambers/milton-web-components": "^0.0.349",
+    "@dannychambers/bateson-web-components": "file:../00_bateson-web-components",
     "@types/react-router-dom": "^5.3.3",
     "buffer": "^6.0.3",
     "clsx": "^2.1.1",

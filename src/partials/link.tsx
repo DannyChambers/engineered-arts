@@ -1,5 +1,5 @@
 import { Link as RouterLink } from "react-router-dom";
-import { Link } from "@dannychambers/milton-web-components";
+import { Link } from "@dannychambers/bateson-web-components";
 
 interface ReactLinkProps {
   appearance?: "body-1" | "body-2" | "body-3";

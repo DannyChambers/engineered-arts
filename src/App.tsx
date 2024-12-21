@@ -4,7 +4,7 @@ window.Buffer = Buffer;
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./utilities/utilities.css";
 
-import { ThemeProvider } from "@dannychambers/milton-web-components";
+import { ThemeProvider } from "@dannychambers/bateson-web-components";
 
 {
   /* -- Page imports -- */
