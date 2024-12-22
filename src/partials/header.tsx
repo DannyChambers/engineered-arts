@@ -13,7 +13,7 @@ import { useMediaQuery } from "../utilities/useMediaQuery.ts";
 import LogoImage from "../assets/images/EA-logo-light.svg";
 
 const Header: React.FC = () => {
-  const isDesktop = useMediaQuery(`(min-width: ${breakpoint.sm.value})`);
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoint.md.value})`);
 
   return (
     <PageHeader>

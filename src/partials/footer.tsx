@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
     <>
       <PageFooter>
         <Layout bottomGutter="xl">
-          <Layout grid="50_50" stack="md">
+          <Layout grid="50_50" stack="sm">
             <Layout.Column>
               <Layout grid="50_50">
                 <Layout.Column>
@@ -123,7 +123,7 @@ const Footer: React.FC = () => {
           </Layout>
         </Layout>
 
-        <Layout grid="25_25_25_25" pair="md">
+        <Layout grid="25_25_25_25" pair="sm">
           <Layout.Column>
             <Logo
               src={LogoImage}

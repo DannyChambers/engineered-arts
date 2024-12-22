@@ -31,7 +31,14 @@ import { useMediaQuery } from "../../utilities/useMediaQuery.ts";
 
 const Home: React.FC = () => {
   const { color } = useTheme();
-  const isDesktop = useMediaQuery(`(min-width: ${breakpoint.sm.value})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoint.sm.value})`);
+  const aboveTablet = useMediaQuery(
+    `(min-width: ${breakpoint.sm.number + 1}px)`
+  );
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoint.md.value})`);
+  const aboveDesktop = useMediaQuery(
+    `(min-width: ${breakpoint.lg.number + 1}px)`
+  );
 
   return (
     <Layout wrapper>
@@ -40,21 +47,31 @@ const Home: React.FC = () => {
       {/* -- End Header -- */}
 
       {/* -- Hero -- */}
-      <PageSection backgroundVideo={HeroVideo} screen="half">
+      <PageSection backgroundVideo={HeroVideo}>
         <Layout container>
-          <Layout grid="60_40" stack="md">
+          <Layout grid="60_40" stack="xs">
             <Layout.Column>
-              <Text
-                tag="h2"
-                appearance={(isDesktop && "heading-1") || "heading-3"}
-                color={color.brand4.value}
-              >
-                State-of-the-art wonder
-              </Text>
-              <Text appearance="body-1" color={color.brand4.value}>
-                Need to draw a crowd? Want more footfall? Our hyper-advanced
-                robots inspire awe wherever they are across the globe.
-              </Text>
+              <Layout topGutter="xl">
+                <Layout bottomGutter="xl">
+                  <Text
+                    tag="h2"
+                    appearance={(isDesktop && "heading-1") || "heading-3"}
+                    color={color.brand4.value}
+                  >
+                    State-of-the-art wonder
+                  </Text>
+                  <Text appearance="body-1" color={color.brand4.value}>
+                    Need to draw a crowd? Want more footfall? Our hyper-advanced
+                    robots inspire awe wherever they are across the globe.
+                  </Text>
+                </Layout>
+              </Layout>
+              <ButtonGroup>
+                <Button url="/" tier="secondary" appearance="body-1">
+                  Find out more
+                  <span className="visually-hidden">about our events</span>
+                </Button>
+              </ButtonGroup>
             </Layout.Column>
           </Layout>
         </Layout>
@@ -64,24 +81,24 @@ const Home: React.FC = () => {
       {/* -- Ameca -- */}
       <PageSection
         backgroundColor={color.brand7.value}
-        {...(isDesktop ? { backgroundImage: Ameca } : {})}
+        {...(isTablet ? { backgroundImage: Ameca } : {})}
         backgroundImagePosition="bottomRight"
-        screen="half"
+        {...(aboveDesktop ? { screen: "half" } : {})}
       >
         <Layout container>
           <Layout
-            grid="40_60"
+            grid={(isDesktop && "60_40") || "50_50"}
             {...(isDesktop ? { gap: "xl" } : { gap: "sm" })}
-            stack="md"
-            {...(isDesktop ? { contentReverse: true } : {})}
+            stack="xs"
+            {...(isTablet ? { contentReverse: true } : {})}
           >
             <Layout.Column>
-              {!isDesktop && (
-                <div style={{ width: "200px", margin: "0 auto" }}>
+              {!isTablet && (
+                <div style={{ width: "50%", margin: "0 auto" }}>
                   <Image src={Ameca} alt="Ameca" fluid />
                 </div>
               )}
-              {isDesktop && <>&nbsp;</>}
+              {isTablet && <>&nbsp;</>}
             </Layout.Column>
             <Layout.Column>
               <Layout bottomGutter="xl">
@@ -133,23 +150,23 @@ const Home: React.FC = () => {
       {/* -- Mesmer -- */}
       <PageSection
         backgroundColor={color.brand1.value}
-        {...(isDesktop ? { backgroundImage: Thoth } : {})}
+        {...(isTablet ? { backgroundImage: Thoth } : {})}
         backgroundImagePosition="bottomLeft"
-        screen="half"
+        {...(aboveDesktop ? { screen: "half" } : {})}
       >
         <Layout container>
           <Layout
             grid="50_50"
             {...(isDesktop ? { gap: "xl" } : { gap: "sm" })}
-            stack="md"
+            stack="xs"
           >
             <Layout.Column>
-              {!isDesktop && (
-                <div style={{ width: "200px", margin: "0 auto" }}>
+              {!isTablet && (
+                <div style={{ width: "50%", margin: "0 auto" }}>
                   <Image src={Thoth} alt="Thoth" fluid />
                 </div>
               )}
-              {isDesktop && <>&nbsp;</>}
+              {isTablet && <>&nbsp;</>}
             </Layout.Column>
             <Layout.Column>
               <Layout bottomGutter="xl">
@@ -204,24 +221,24 @@ const Home: React.FC = () => {
       {/* -- Ameca Desktop -- */}
       <PageSection
         backgroundColor={color.brand7.value}
-        {...(isDesktop ? { backgroundImage: AmecaDesktop } : {})}
+        {...(isTablet ? { backgroundImage: AmecaDesktop } : {})}
         backgroundImagePosition="bottomRight"
-        screen="half"
+        {...(aboveDesktop ? { screen: "half" } : {})}
       >
         <Layout container>
           <Layout
-            grid="40_60"
+            grid={(isDesktop && "60_40") || "50_50"}
             {...(isDesktop ? { gap: "xl" } : { gap: "sm" })}
-            stack="md"
-            {...(isDesktop ? { contentReverse: true } : {})}
+            stack="xs"
+            {...(isTablet ? { contentReverse: true } : {})}
           >
             <Layout.Column>
-              {!isDesktop && (
-                <div style={{ width: "200px", margin: "0 auto" }}>
+              {!isTablet && (
+                <div style={{ width: "50%", margin: "0 auto" }}>
                   <Image src={AmecaDesktop} alt="Ameca Desktop" fluid />
                 </div>
               )}
-              {isDesktop && <>&nbsp;</>}
+              {isTablet && <>&nbsp;</>}
             </Layout.Column>
             <Layout.Column>
               <Layout bottomGutter="xl">
@@ -270,23 +287,23 @@ const Home: React.FC = () => {
       {/* -- Azi Desktop -- */}
       <PageSection
         backgroundColor={color.brand1.value}
-        {...(isDesktop ? { backgroundImage: AziDesktop } : {})}
+        {...(isTablet ? { backgroundImage: AziDesktop } : {})}
         backgroundImagePosition="bottomLeft"
-        screen="half"
+        {...(aboveDesktop ? { screen: "half" } : {})}
       >
         <Layout container>
           <Layout
-            grid="60_40"
+            grid={(isDesktop && "40_60") || "50_50"}
             {...(isDesktop ? { gap: "xl" } : { gap: "sm" })}
-            stack="md"
+            stack="xs"
           >
             <Layout.Column>
-              {!isDesktop && (
-                <div style={{ width: "200px", margin: "0 auto" }}>
+              {!isTablet && (
+                <div style={{ width: "50%", margin: "0 auto" }}>
                   <Image src={AziDesktop} alt="Azi Desktop" fluid />
                 </div>
               )}
-              {isDesktop && <>&nbsp;</>}
+              {isTablet && <>&nbsp;</>}
             </Layout.Column>
             <Layout.Column>
               <Layout bottomGutter="xl">
@@ -339,24 +356,24 @@ const Home: React.FC = () => {
       {/* -- Robothespian-- */}
       <PageSection
         backgroundColor={color.brand7.value}
-        {...(isDesktop ? { backgroundImage: Robothespian } : {})}
+        {...(isTablet ? { backgroundImage: Robothespian } : {})}
         backgroundImagePosition="bottomRight"
-        screen="half"
+        {...(aboveDesktop ? { screen: "half" } : {})}
       >
         <Layout container>
           <Layout
             grid="50_50"
             {...(isDesktop ? { gap: "xl" } : { gap: "sm" })}
-            stack="md"
-            {...(isDesktop ? { contentReverse: true } : {})}
+            stack="xs"
+            {...(isTablet ? { contentReverse: true } : {})}
           >
             <Layout.Column>
-              {!isDesktop && (
+              {!isTablet && (
                 <div style={{ width: "200px", margin: "0 auto" }}>
                   <Image src={Robothespian} alt="Robothespian" fluid />
                 </div>
               )}
-              {isDesktop && <>&nbsp;</>}
+              {isTablet && <>&nbsp;</>}
             </Layout.Column>
             <Layout.Column>
               <Layout bottomGutter="xl">
