@@ -32,9 +32,6 @@ import { useMediaQuery } from "../../utilities/useMediaQuery.ts";
 const Home: React.FC = () => {
   const { color } = useTheme();
   const isTablet = useMediaQuery(`(min-width: ${breakpoint.sm.value})`);
-  const aboveTablet = useMediaQuery(
-    `(min-width: ${breakpoint.sm.number + 1}px)`
-  );
   const isDesktop = useMediaQuery(`(min-width: ${breakpoint.md.value})`);
   const aboveDesktop = useMediaQuery(
     `(min-width: ${breakpoint.lg.number + 1}px)`
@@ -47,7 +44,10 @@ const Home: React.FC = () => {
       {/* -- End Header -- */}
 
       {/* -- Hero -- */}
-      <PageSection backgroundVideo={HeroVideo}>
+      <PageSection
+        backgroundColor={color.brand1.value}
+        backgroundVideo={HeroVideo}
+      >
         <Layout container>
           <Layout grid="60_40" stack="xs">
             <Layout.Column>
@@ -422,14 +422,16 @@ const Home: React.FC = () => {
       {/* -- End Robothespian -- */}
 
       {/* -- Our Clients -- */}
-      {/* <PageSection backgroundColor={color.brand7.value} screen="half">
+      <PageSection backgroundColor={color.brand7.value}>
         <Layout container>
-          <Text tag="h2" appearance="heading-2">
-            Our clients
+          <Text tag="h2" appearance="heading-5" alignment="center" decorator>
+            Our Clients Include
           </Text>
-          <Text appearance="body-2">Lorem ipsum</Text>
+          <Text appearance="body-1" alignment="center">
+            Carousels no more!
+          </Text>
         </Layout>
-      </PageSection> */}
+      </PageSection>
       {/* -- Our Clients -- */}
 
       {/* -- PageFooter -- */}

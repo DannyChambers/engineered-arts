@@ -2,11 +2,14 @@ import React from "react";
 
 import {
   PageHeader,
+  Flyout,
   Logo,
+  Button,
   breakpoint,
 } from "@dannychambers/bateson-web-components";
 
 import Navigation from "./navigation";
+import Utility from "./utility";
 
 import { useMediaQuery } from "../utilities/useMediaQuery.ts";
 
@@ -24,7 +27,15 @@ const Header: React.FC = () => {
         tag="h1"
         size={(isDesktop && "lg") || "md"}
       />
-      <Navigation />
+      {!isDesktop && (
+        <Button tier="tertiary" layout={false} capitalize>
+          EN
+        </Button>
+      )}
+      <Flyout position="right" flyoutTitle="Menu" loadOpen>
+        <Navigation />
+        <Utility />
+      </Flyout>
     </PageHeader>
   );
 };

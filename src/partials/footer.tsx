@@ -201,18 +201,16 @@ const Footer: React.FC = () => {
         </Layout>
       </PageFooter>
       <SiteFooter backgroundColor={color.brand1.value}>
-        <Layout container>
-          <List
-            color={color.brand4.value}
-            appearance="body-3"
-            marker={false}
-            {...(isDesktop ? { inline: "center" } : {})}
-          >
-            <li>&copy;2025 Engineered Arts</li>
-            <li>Company no.: 05265468</li>
-            <li>VAT no.: GB677990757</li>
-          </List>
-        </Layout>
+        <List
+          color={color.brand5.value}
+          appearance="body-3"
+          marker={false}
+          inline="center"
+        >
+          <li>&copy;2025 Engineered Arts</li>
+          <li>Company no.: 05265468</li>
+          <li>VAT no.: GB677990757</li>
+        </List>
       </SiteFooter>
     </>
   );
